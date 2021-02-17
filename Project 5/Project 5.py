@@ -18,7 +18,7 @@ def draw_plot():
     y = df['CSIRO Adjusted Sea Level']
     plt.figure(figsize = (5,5))
     plt.scatter(data=df, x = 'Year', y = 'CSIRO Adjusted Sea Level',marker='*', color='green', linewidths=0.1)
-    
+
     # Create first line of best fit
     slope, intercept, r_value, p_value, std_err = linregress(x, y)
     x = pd.Series(range(df['Year'][0], 2050, 1))
@@ -33,7 +33,7 @@ def draw_plot():
     plt.xlabel('Year', fontproperties='Calibri', fontsize=13)
     plt.ylabel('Sea Level (inches)', fontproperties='Calibri', fontsize=13)
     plt.title('Rise in Sea Level', fontproperties='Calibri', fontsize=16)
-    
+
     # Save plot and return data for testing (DO NOT MODIFY)
     plt.savefig('sea_level_plot.png')
     return plt.gca()
@@ -52,7 +52,7 @@ class LinePlotTestCase(unittest.TestCase):
         actual = self.ax.get_title()
         expected = "Rise in Sea Level"
         self.assertEqual(actual, expected, "Expected line plot title to be 'Rise in Sea Level'")
-    
+
     def test_plot_labels(self):
         actual = self.ax.get_xlabel()
         expected = "Year"
